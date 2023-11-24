@@ -132,6 +132,8 @@ Description:
 			err = commands.Version(args)
 		case "node":
 			err = commands.Node(args)
+		case "cluster":
+			err = commands.Cluster(args)
 		case "ipam":
 			err = commands.IPAM(args)
 		case "datastore":

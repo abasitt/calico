@@ -42,7 +42,7 @@ type diagCmd struct {
 func Diags(args []string) error {
 	var err error
 	doc := `Usage:
-  <BINARY_NAME> node diags [--log-dir=<LOG_DIR>] [--allow-version-mismatch]
+  <BINARY_NAME> cluster diags [--log-dir=<LOG_DIR>] [--allow-version-mismatch]
 
 Options:
   -h --help                    Show this screen.

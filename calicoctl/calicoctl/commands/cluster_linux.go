@@ -19,9 +19,8 @@ import (
 	"strings"
 
 	"github.com/docopt/docopt-go"
-
+    "cluster"
 	"github.com/projectcalico/calico/calicoctl/calicoctl/commands/constants"
-	"github.com/projectcalico/calico/calicoctl/calicoctl/commands/node"
 	"github.com/projectcalico/calico/calicoctl/calicoctl/util"
 )
 
@@ -29,18 +28,18 @@ import (
 func Cluster(args []string) error {
 	var err error
 	doc := constants.DatastoreIntro + `Usage:
-  <BINARY_NAME> node <command> [<args>...]
+  <BINARY_NAME> cluster <command> [<args>...]
 
-    diags        Gather a diagnostics bundle for a Calico node.
+    diags        Gather a diagnostics bundle for a Calico cluster.
 
 Options:
   -h --help      Show this screen.
 
 Description:
   Cluster specific commands for <BINARY_NAME>.  These commands must be run directly on
-  the compute host running the Calico node instance.
+  the compute host running the Calico cluster instance.
 
-  See '<BINARY_NAME> node <command> --help' to read about a specific subcommand.
+  See '<BINARY_NAME> cluster <command> --help' to read about a specific subcommand.
 `
 	// Replace all instances of BINARY_NAME with the name of the binary.
 	name, _ := util.NameAndDescription()
@@ -60,11 +59,11 @@ Description:
 	}
 
 	command := arguments["<command>"].(string)
-	args = append([]string{"node", command}, arguments["<args>"].([]string)...)
+	args = append([]string{"cluster", command}, arguments["<args>"].([]string)...)
 
 	switch command {
 	case "diags":
-		return node.Diags(args)
+		return cluster.Diags(args)
 	default:
 		fmt.Println(doc)
 	}
