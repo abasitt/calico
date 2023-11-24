@@ -19,7 +19,7 @@ import (
 	"strings"
 
 	"github.com/docopt/docopt-go"
-    "cluster"
+    "github.com/projectcalico/calico/calicoctl/calicoctl/commands/cluster"
 	"github.com/projectcalico/calico/calicoctl/calicoctl/commands/constants"
 	"github.com/projectcalico/calico/calicoctl/calicoctl/util"
 )
